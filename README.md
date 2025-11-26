@@ -1,16 +1,16 @@
-# 📁 Project Structure — `mern-launcher`
+# 📁 Project Structure — `mern-launcher-cli`
 
+```text
 mern-launcher-cli/
 │
 ├── bin/
-│   └── cli.js                 # runs  mern-launcher
+│   └── cli.js                 # runs mern-launcher
 │
 ├── src/
-│   ├── prompts/               # All questions 
+│   ├── prompts/               # All questions go here
 │   │   └── projectQuestions.js
 │   │
-│   │
-│   ├── generator/             
+│   ├── generator/             # Main 
 │   │   ├── createStructure.js # creates myapp/, frontend/, backend/
 │   │   ├── setupVite.js       # runs npm create vite
 │   │   ├── setupTailwind.js   # installs & configures Tailwind
@@ -40,3 +40,4 @@ mern-launcher-cli/
 ├── package.json
 ├── README.md
 └── .gitignore
+```
