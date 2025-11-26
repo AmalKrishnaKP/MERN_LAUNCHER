@@ -3,31 +3,27 @@
 mern-launcher-cli/
 │
 ├── bin/
-│   └── cli.js                 # Main entrypoint (executes when user runs: mern-launcher)
+│   └── cli.js                 # runs  mern-launcher
 │
 ├── src/
-│   ├── prompts/               # All inquirer prompts
+│   ├── prompts/               # All questions 
 │   │   └── projectQuestions.js
 │   │
-<!-- │   ├── utils/                 # Helper functions and utilities
-│   │   ├── logger.js          # Logging + spinner (chalk, ora)
-│   │   ├── pathUtils.js       # Helpers for handling paths
-│   │   └── fileUtils.js       # Helpers for writing, copying, creating files/folders -->
 │   │
-│   ├── generator/             # Main automation code (Milestones 2–10)
-│   │   ├── createStructure.js # Creates myapp/, client/, server/ folder structure
-│   │   ├── setupVite.js       # Automates `npm create vite@latest`
-│   │   ├── setupTailwind.js   # Installs & configures Tailwind CSS
-│   │   ├── setupShadcn.js     # Installs & configures shadcn/ui
-│   │   ├── setupExpress.js    # Generates backend Express boilerplate
-│   │   ├── setupMongo.js      # Auto-creates MongoDB connection file (db/connect.js)
-│   │   ├── setupEnv.js        # Generates .env file with defaults
-│   │   ├── setupDocker.js     # Adds docker-compose.yml for full MERN stack
-│   │   └── setupRootScripts.js# Adds root-level npm scripts (run client + server)
+│   ├── generator/             
+│   │   ├── createStructure.js # creates myapp/, frontend/, backend/
+│   │   ├── setupVite.js       # runs npm create vite
+│   │   ├── setupTailwind.js   # installs & configures Tailwind
+│   │   ├── setupShadcn.js     # installs & configures shadcn/ui
+│   │   ├── setupExpress.js    # creates backend
+│   │   ├── setupMongo.js      # db/connect.js auto-generator
+│   │   ├── setupEnv.js        # generates .env
+│   │   ├── setupDocker.js     # docker-compose.yml
+│   │   └── setupRootScripts.js# dev scripts for running client/server
 │   │
-│   ├── index.js               # Controls full CLI flow (ask Qs → generate project)
+│   ├── index.js               # Controls flow: ask questions → run steps
 │   │
-│   └── templates/             # Base template files copied into new project
+│   └── templates/             # Ready-made template files
 │       ├── express/
 │       │   ├── index.js
 │       │   ├── db/
