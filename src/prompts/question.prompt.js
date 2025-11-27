@@ -22,25 +22,18 @@ export const askQuestions=async()=>{
             }
         },
         {
-            type:'checkbox',
-            name:"language",
-            message:"select language",
-            choices:["JavaScript","TypeScript"],
+            type:"input",
+            name:"mongoURL",
+            message:"Enter the mongoDB url (double check before pasting)",
             validate:(value)=>{
-                return value.length<=0?"enter a checkbox":true
+                if (!value)
+                {
+                    value=null
+                    return "Cannot leave Empty"
+                }
+                return true
+                
             }
-        },
-        {
-            type:"confirm",
-            name:"AddShadcn",
-            default:true,
-            message:"do you want shadCN"
-        },
-        {
-            type:"confirm",
-            name:"auto install",
-            default:true,
-            message:"add autoinstall"
         }
     ])
     return answer;

@@ -3,8 +3,9 @@ import fs from 'fs'
 import path from 'path';
 import { exit } from 'process';
 
-import { setupVite } from './setupVite.generator.js';
 import { frontendSetup } from '../setups/frontend.setups.js';
+import { backendSetup } from '../setups/backend.setup.js';
+import { execa } from 'execa';
 
 
 export const createProjectStructure=async(answer)=>{
@@ -16,10 +17,8 @@ export const createProjectStructure=async(answer)=>{
         console.log("folder created successfully");
 
         await frontentFolder(dirPath,answer);
-        console.log("now go to");
-        console.log(path.join(dirPath,"frontend"));
-        console.log("and run");  
-        console.log("npm run dev");
+        
+        await backendFolder(dirPath,answer);
         
         
         
@@ -51,6 +50,24 @@ const frontentFolder=async(dirPath,answer)=>{
         const frontPath=path.join(dirPath,"frontend")
         
         await frontendSetup(frontPath)
+
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+const backendFolder=async(dirPath,answer)=>{
+    try {
+        fs.mkdirSync(path.join(dirPath,"backend"))
+        fs.mkdirSync(path.join(dirPath,"backend/src"))
+        const backPath=path.join(dirPath,"backend")
+        
+        await execa("npm",["init","-y"],{
+            cwd:backPath,
+            stdio:"inherit"
+        })
+        await backendSetup(backPath,answer)
+        
 
     } catch (error) {
         console.log(error);
