@@ -20,7 +20,7 @@ export const setupTailwind=async(frontPath)=>{
         const htmlFile= path.join(frontPath,"index.html")
         const htmlContent= fs.readFileSync(htmlFile,'utf8')
         
-        const updatedHtmlCont= htmlContent.replace(/<\/title>\s*/i,`<title> \n \t <link href="/src/style.css" rel="stylesheet"> \n`)
+        const updatedHtmlCont= htmlContent.replace(/<\/title>\s*/i,`</title> \n \t <link href="/src/style.css" rel="stylesheet"> \n`)
         console.log(updatedHtmlCont);
         fs.writeFileSync(htmlFile,updatedHtmlCont)
 

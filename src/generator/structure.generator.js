@@ -16,7 +16,12 @@ export const createProjectStructure=async(answer)=>{
         console.log("folder created successfully");
 
         await frontentFolder(dirPath,answer);
-        console.log("frontend created successfully");
+        console.log("now go to");
+        console.log(path.join(dirPath,"frontend"));
+        console.log("and run");  
+        console.log("npm run dev");
+        
+        
         
         
     } catch (error) {
