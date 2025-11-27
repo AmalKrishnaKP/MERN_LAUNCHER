@@ -15,7 +15,7 @@ export const createProjectStructure=async(answer)=>{
         await ProjectFolder(answer.ProjectName)                         //  main_dir created
         console.log("folder created successfully");
 
-        await frontentFolder(dirPath);
+        await frontentFolder(dirPath,answer);
         console.log("frontend created successfully");
         
         
@@ -40,7 +40,7 @@ const ProjectFolder=async(name)=>{
         
     }
 }
-const frontentFolder=async(dirPath)=>{
+const frontentFolder=async(dirPath,answer)=>{
     try {
         fs.mkdirSync(path.join(dirPath,"frontend"))
         const frontPath=path.join(dirPath,"frontend")
