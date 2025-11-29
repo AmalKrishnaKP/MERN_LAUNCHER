@@ -12,7 +12,7 @@ import mongoose from 'mongoose'
 
 export const connectDB=async()=>{
     try {
-        const conn=await mongoose.connect(${answer.mongoURL})
+        const conn=await mongoose.connect("${answer.mongoURL}")
         console.log("connectd in "+ conn.connection.host);
         
     } catch (error) {
