@@ -21,19 +21,19 @@ export const setupTailwind=async(frontPath)=>{
         const htmlContent= fs.readFileSync(htmlFile,'utf8')
         
         const updatedHtmlCont= htmlContent.replace(/<\/title>\s*/i,`</title> \n \t <link href="/src/style.css" rel="stylesheet"> \n`)
-        console.log(updatedHtmlCont);
+        // console.log(updatedHtmlCont);
         fs.writeFileSync(htmlFile,updatedHtmlCont)
 
-        console.log("html updated");
+        console.log("html updated \n \n");
         
         
         const configFile= path.join(frontPath,"vite.config.js")
         const configCont= fs.readFileSync(configFile,'utf8')
         const updatedConfigCont= configCont.replace(/plugins: \[\s*/,`plugins: [tailwindcss(),`)
         fs.writeFileSync(configFile,`import tailwindcss from '@tailwindcss/vite' \n`+updatedConfigCont)
-        console.log(updatedConfigCont);
+        // console.log(updatedConfigCont);
 
-        console.log("pluggin updated");
+        console.log("pluggin updated \n \n");
         
 
 

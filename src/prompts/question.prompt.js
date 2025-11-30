@@ -8,9 +8,16 @@ export const askQuestions=async()=>{
         console.log(chalk.white("------------------"));
         const answer=await inquirer.prompt([
         {
+            type:"confirm",
+            name:"currentFolder",
+            message:"use current folder as the project folder or create new one(yes/no)?",
+            
+        },
+        {
             type:"input",
             name:"ProjectName",
-            message:"Enter the project Name :",
+            message:"If no Enter the project Name :",
+            when:(answer)=>!answer.currentFolder,
             validate:(value)=>{
                 if (!value)
                 {
@@ -36,6 +43,8 @@ export const askQuestions=async()=>{
             }
         }
     ])
+    console.log(answer);
+    
     return answer;
     } catch (error) {
         console.log(error.message);

@@ -10,20 +10,45 @@ import { execa } from 'execa';
 
 export const createProjectStructure=async(answer)=>{
     try {
-        const dirPath=  path.join(process.cwd(),answer.ProjectName)       //  main_dir path
-        console.log(dirPath);
+        let dirPath=''
+        if (answer.currentFolder){
+            dirPath= process.cwd()
+            console.log(dirPath);
+            
+            await frontentFolder(dirPath,answer);
         
-        await ProjectFolder(answer.ProjectName)                         //  main_dir created
-        console.log("folder created successfully");
+            await backendFolder(dirPath,answer);
+        }
+        else
+        {
+            dirPath=  path.join(process.cwd(),answer.ProjectName)       //  main_dir path
+            // console.log(dirPath);
+            
+            await ProjectFolder(answer.ProjectName)                         //  main_dir created
+            console.log("folder created successfully");
+    
+            await frontentFolder(dirPath,answer);
+            
+            await backendFolder(dirPath,answer);
 
-        await frontentFolder(dirPath,answer);
-        
-        await backendFolder(dirPath,answer);
+        }
+        console.log(`
+            api calls - use 
+            ->  axiosInstance
+            now in one terminal got to 
+            ->  ${dirPath}/frontend 
+                run 
+            ->  npm run dev
+                in next terminal go to 
+            ->${dirPath}/backend 
+                run 
+            ->  npm run dev`);
         
         
         
         
     } catch (error) {
+        console.log(error);
         
     }
 }

@@ -2,6 +2,7 @@ import { execa } from "execa"
 import { setupVite } from "../generator/setupVite.generator.js";
 import { setupTailwind } from "../generator/setupTailwind.generator.js";
 import { setupShadCN } from "../generator/setupShadCN.generator.js";
+import { setupAxios } from "../generator/setupAxios.generator.js";
 
 export const frontendSetup=async(frontPath)=>{
     try {
@@ -9,6 +10,7 @@ export const frontendSetup=async(frontPath)=>{
         await setupVite(frontPath)
         await setupTailwind(frontPath)
         await setupShadCN(frontPath)
+        await setupAxios(frontPath)
         
     } catch (error) {
         console.log(error);
