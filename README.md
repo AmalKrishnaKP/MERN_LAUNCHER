@@ -34,14 +34,14 @@ A powerful CLI tool that automates MERN stack project setup, specifically design
 ### Installation
 
 ```bash
-npx mern-launcher
+npx @amalkrishnakp/mern-launcher
 ```
 
 ### Usage
 
 1. **Run the CLI tool:**
    ```bash
-   npx mern-launcher
+   npx @amalkrishnakp/mern-launcher
    ```
 
 2. **Answer the interactive prompts:**
